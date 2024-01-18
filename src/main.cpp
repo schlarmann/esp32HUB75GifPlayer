@@ -187,7 +187,7 @@ void GIFDraw(GIFDRAW *pDraw)
         if (iCount) // any opaque pixels?
         {
           for(int xOffset = 0; xOffset < iCount; xOffset++ ){
-            drawPixelToScreen(x + xOffset + pDraw->iX, y + pDraw->iY, usTemp[xOffset]); // 565 Color Format
+            drawPixelToScreen(x + xOffset + pDraw->iX, y, usTemp[xOffset]); // 565 Color Format
           }
           x += iCount;
           iCount = 0;
@@ -215,7 +215,7 @@ void GIFDraw(GIFDRAW *pDraw)
       // Translate the 8-bit pixels through the RGB565 palette (already byte reversed)
       for (x=0; x<pDraw->iWidth; x++)
       {
-        drawPixelToScreen(x + pDraw->iX, y + pDraw->iY, usPalette[*s++]); // color 565
+        drawPixelToScreen(x + pDraw->iX, y, usPalette[*s++]); // color 565
       }
     }
 } /* GIFDraw() */
